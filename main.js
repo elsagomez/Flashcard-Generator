@@ -9,6 +9,7 @@ var clozeQuiz = [];
 
 for(var i = 0; i < clozeQuestions.length; i++){ //trabajar con un for in para jalar el array de objetos entero.
 		var question = new cards.ClozeCard(clozeQuestions[i].fullText,clozeQuestions[i].partial,clozeQuestions[i].cloze);
+		// console.log(question);
 		clozeQuiz.push(question);
 	}
 
@@ -28,7 +29,7 @@ function generateQuestion(){
 
 		]).then(function(answers){
 
-			if(answers.userInput.toLowerCase() === clozeQuiz[currentQuestion].cloze.toLowerCase()){
+			if(answers.userInput === clozeQuiz[currentQuestion].cloze){
 					console.log("That is correct! :)");
 					correctAnswer ++;
 
