@@ -1,15 +1,14 @@
 var inquirer = require("inquirer");
 
 var cards = require("./cards.js");
-var clozeQuestions = require("./clozeCard.js").clozeQuestions;
 
+var clozeQuestions = require("./clozeCard.js").clozeQuestions;
 var clozeQuiz = [];
 
 
 
 for(var i = 0; i < clozeQuestions.length; i++){ //trabajar con un for in para jalar el array de objetos entero.
-		var question = new cards.ClozeCard(clozeQuestions[i].fullText,clozeQuestions[i].cloze,clozeQuestions[i].partial);
-		console.log(question);
+		var question = new cards.ClozeCard(clozeQuestions[i].fullText,clozeQuestions[i].partial,clozeQuestions[i].cloze);
 		clozeQuiz.push(question);
 	}
 
@@ -31,7 +30,7 @@ function generateQuestion(){
 
 			if(answers.userInput.toLowerCase() === clozeQuiz[currentQuestion].cloze.toLowerCase()){
 					console.log("That is correct! :)");
-					answerRight ++;
+					correctAnswer ++;
 
 			}
 			else{
